@@ -7,14 +7,19 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
   heroes: Hero[] = []
-  constructor(private heroService: HeroService) { }
+
+  constructor(
+    private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes()
   }
+
   getHeroes(): void {
     this.heroService.getHeroes().
       subscribe(heroes => this.heroes = heroes.slice(1, 5))
   }
+
 }
